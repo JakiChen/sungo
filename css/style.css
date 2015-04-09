@@ -890,13 +890,17 @@ Parallax
 	background-size:100% 100%;
 }
 .banner-content .banner-ireader{
-	background-color:#07162d;
+	background:#07162d url(../img/banner/banner-ireader.png) right bottom no-repeat;
 }
 .banner-content .banner-ireader .element{
 	position:absolute;
 	right:1px;
-	bottom:0;
+	top:-36px;
 	z-index:200;
+	width:200px;
+	height:40px;
+	overflow:hidden;
+	background:url(../img/banner/banner-ireader.png) right top no-repeat;
 }
 .banner-content .banner-ireader .slogan{
 	width:54px;
