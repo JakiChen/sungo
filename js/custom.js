@@ -5,6 +5,7 @@
 	jQuery(window).load(function() { 
 		jQuery("#preloader").delay(100).fadeOut("slow");
 		jQuery("#load").delay(100).fadeOut("slow");
+		$(".banner-content").addClass("banner-content-fixed");
 	});
 
 
@@ -12,8 +13,10 @@
 	$(window).scroll(function() {
 		if ($(".navbar").offset().top > 50) {
 			$(".navbar-fixed-top").addClass("top-nav-collapse");
+			$(".banner-content").removeClass("banner-content-fixed");
 		} else {
 			$(".navbar-fixed-top").removeClass("top-nav-collapse");
+			$(".banner-content").addClass("banner-content-fixed");
 		}
 	});
 
