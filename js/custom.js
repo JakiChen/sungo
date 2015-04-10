@@ -6,7 +6,7 @@
 		jQuery("#preloader").delay(100).fadeOut("slow");
 		jQuery("#load").delay(100).fadeOut("slow");
 		$(".banner-content").addClass("banner-content-fixed");
-		$(".banner-content").css("zoom","80%");
+		$(".banner-content").css("zoom","75%");
 	});
 
 
