@@ -7,6 +7,9 @@
 		jQuery("#load").delay(100).fadeOut("slow");
 		$(".banner-content").addClass("banner-content-fixed");
 		$(".banner-content").css("zoom","75%");
+		if(document.all && window.external){
+			$(".banner-content").css("width","133%");
+		}
 	});
 
 
