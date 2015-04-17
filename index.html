@@ -18,8 +18,71 @@
     <!-- Squad theme CSS -->
     <link href="css/style.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
-
+    
+    <script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+    
 </head>
+
+<!--demo-introl-->
+<div class="container demo-2">
+  <div id="slider" class="sl-slider-wrapper">
+    <div class="sl-slider">
+      <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+        <div class="sl-slide-inner">
+          <div class="bg-img bg-img-1"></div>
+          <div class="banner-container">
+              <div class="banner-content">
+                  <h2>Build your<span class="small">Business Membership</span><span class="qr-container"></span></h2>
+                  <p>「WE MEDIA 」是一款专注于个人商业人脉的应用，通过二度人脉让你快速建立可靠的合作关系，实现自我价值与增长。</p>
+                  <a href="#" class="btn-detail">立即体验</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+        <div class="sl-slide-inner">
+          <div class="bg-img bg-img-2"></div>
+          <div class="banner-container">
+              <div class="banner-content">
+                  <h2 class="white">随时随地<br>订阅身边奇趣<span class="qr-container color-orange"></span></h2>
+                  <p class="white">「拓视订阅」是一款专注于微信精品公众号，文章，内容整合的订阅应用，让您随时随地不错过分秒精彩。</p>
+                  <a href="#" class="btn-detail color-orange">立即体验</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+        <div class="sl-slide-inner">
+          <div class="bg-img bg-img-3"></div>
+          <div class="banner-container">
+              <div class="banner-content">
+                  <h2 class="white">你身边的健康<br>咨询顾问<span class="qr-container color-green"></span></h2>
+                  <p class="white">「妙妙」是一款专注于你个人健康的管理工具，同时提供在线医生实时咨询及问答的社区，关注你健康的点点滴滴。</p>
+                  <a href="#" class="btn-detail color-green">立即体验</a>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+        <div class="sl-slide-inner">
+          <div class="bg-img bg-img-4"></div>
+          <div class="banner-container">
+              <div class="banner-content">
+                  <h2>E - Marketing<br>Shopping Mall<span class="qr-container color-red"></span></h2>
+                  <p>「金象购」是一款专注于电子商务移动终端营销的APP，无论你是品牌运营商，经销商，个人用户，都能在平台轻松赚钱。</p>
+                  <a href="#" class="btn-detail color-red">立即体验</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /sl-slider -->
+    
+    <nav id="nav-dots" class="nav-dots"> <span class="nav-dot-current"></span> <span></span> <span></span> <span></span></nav>
+  </div>
+  <!-- /slider-wrapper --> 
+</div>
+<!--/demo-introl-->
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 	<!-- Preloader -->
@@ -398,6 +461,77 @@
 	<script src='js/particleslider.js'></script>
     <script src='js/ParticleSliderSamples.js'></script>
     <script src="js/index.js"></script>
+    
+	<script type="text/javascript" src="js/jquery.ba-cond.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.slitslider.js"></script> 
+    <script type="text/javascript">
+		function dynamicBannerSize(){
+			var dHeight = $(window).height() - 92;
+            $(".sl-slider-wrapper").css("height",dHeight);
+		}
+        $(document).ready(function(e) {
+           	dynamicBannerSize();
+            $(".banner-content > li > .detail").click(function(){
+				$(".sl-slider").width("100%");
+				$(".sl-content-wrapper").width("100%");
+				$(".demo-2").show(function(){});
+			});
+        });
+        $(window).resize(function(e){
+           dynamicBannerSize()
+        });
+		
+        $(function() {
+        
+            var Page = (function() {
+    
+                var $nav = $( '#nav-dots > span' ),
+                    slitslider = $( '#slider' ).slitslider( {
+                        onBeforeChange : function( slide, pos ) {
+    
+                            $nav.removeClass( 'nav-dot-current' );
+                            $nav.eq( pos ).addClass( 'nav-dot-current' );
+    
+                        }
+                    } ),
+    
+                    init = function() {
+    
+                        initEvents();
+                        
+                    },
+                    initEvents = function() {
+    
+                        $nav.each( function( i ) {
+                        
+                            $( this ).on( 'click', function( event ) {
+                                
+                                var $dot = $( this );
+                                
+                                if( !slitslider.isActive() ) {
+    
+                                    $nav.removeClass( 'nav-dot-current' );
+                                    $dot.addClass( 'nav-dot-current' );
+                                
+                                }
+                                
+                                slitslider.jump( i + 1 );
+                                return false;
+                            
+                            } );
+                            
+                        } );
+    
+                    };
+    
+                    return { init : init };
+    
+            })();
+    
+            Page.init();
+        
+        });
+    </script>
 </body>
 
 </html>

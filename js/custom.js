@@ -6,7 +6,6 @@
 		jQuery("#preloader").delay(100).fadeOut("slow");
 		jQuery("#load").delay(100).fadeOut("slow");
 		$(".banner-content").addClass("banner-content-fixed");
-
 	});
 
 
@@ -15,9 +14,11 @@
 		if ($(".navbar").offset().top > 50) {
 			$(".navbar-fixed-top").addClass("top-nav-collapse");
 			$(".banner-content").removeClass("banner-content-fixed");
+			$(".demo-2").hide();
 		} else {
 			$(".navbar-fixed-top").removeClass("top-nav-collapse");
 			$(".banner-content").addClass("banner-content-fixed");
+			$(".demo-2").hide(1000);
 		}
 	});
 
